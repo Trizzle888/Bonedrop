@@ -1,0 +1,43 @@
+{
+  "plugin.dependencies": "",
+  "plugin.load-before": "",
+  "plugin.version": "1",
+  "debug-build-mode": false,
+  "open-tab": 0,
+  "plugin-components": [
+    {
+      "=": "org.bukkit.event.entity.EntityShootBowEvent",
+      "parameters": ["NORMAL"]
+    },
+    {
+      "children": [{
+        "=": "org.bukkit.World#dropItemNaturally(org.bukkit.Location,org.bukkit.inventory.ItemStack)",
+        "parameters": [
+          {
+            "=": "org.bukkit.entity.Entity#getWorld()",
+            "parameters": [{"=": "org.bukkit.event.entity.EntityDeathEvent#getEntity()"}]
+          },
+          {
+            "=": "org.bukkit.entity.Entity#getLocation()",
+            "parameters": [{"=": "org.bukkit.event.entity.EntityDeathEvent#getEntity()"}]
+          },
+          {
+            "=": "org.bukkit.inventory.ItemStack#ItemStack(org.bukkit.Material)",
+            "parameters": [{"=": "org.bukkit.Material#BONE"}]
+          }
+        ]
+      }],
+      "=": "org.bukkit.event.entity.EntityDeathEvent",
+      "parameters": ["NORMAL"]
+    }
+  ],
+  "plugin.soft-dependencies": "",
+  "plugin.name": "bonedrop",
+  "plugin.prefix": "",
+  "current-plugin-component": 0,
+  "plugin.author": "KevlarProps",
+  "plugin.description": "Makes all mobs drop bones",
+  "plugin.permissions": "",
+  "open-plugin-components": [1],
+  "plugin.website": ""
+}
